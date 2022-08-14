@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ededed;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.board {
+  width: 700px;
+  height: 700px;
+  display: grid;
+  background-color: #fefefe;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.board div {
+  user-select: none;
+}
+
+.buttons {
+  margin: 3rem 0 1rem 0;
+}
