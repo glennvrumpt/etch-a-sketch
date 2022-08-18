@@ -9,20 +9,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
+.content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  gap: 3rem;
+  max-width: 1300px;
 }
 
 h1 {
   margin: 1%;
+  text-align: center;
 }
 
 .board {
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
   display: grid;
   background-color: #fefefe;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
@@ -32,13 +33,23 @@ h1 {
   user-select: none;
 }
 
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .buttons {
   margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
 
 .buttons > button {
   padding: 5px 10px;
-  width: 5rem;
 }
 
 button {
@@ -46,7 +57,6 @@ button {
 }
 
 #color-picker {
-  margin-top: 1rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

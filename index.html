@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Etch-a-Sketch</h1>
+    <h1>Etch-a-Sketch</h1>
+    <div class="content">
+      <div class="settings">
+        <input type="color" id="color-picker" value="#000000" />
+        <div class="buttons">
+          <button class="color">Color</button>
+          <button class="random">Random</button>
+          <button class="eraser">Eraser</button>
+        </div>
+        <div>
+          <input type="text" value="16" onchange="changeSize(this.value)" />
+          <button>Resize</button>
+        </div>
+        <div class="error">Size must be between 1 and 100</div>
+      </div>
       <div class="board"></div>
-      <input type="color" id="color-picker" value="#000000" />
-      <div class="buttons">
-        <button class="eraser">Eraser</button>
-        <button class="color">Color</button>
-        <button class="random">Random</button>
-      </div>
-      <div>
-        <input type="text" value="16" onchange="changeSize(this.value)" />
-        <button>Resize</button>
-      </div>
-      <div class="error">Size must be between 1 and 100</div>
     </div>
     <script src="script.js"></script>
   </body>
