@@ -1,5 +1,5 @@
 let color = '#000000';
-let changeColor = false;
+let randomMode = false;
 
 function createBoard(input) {
   const board = document.querySelector('.board');
@@ -18,12 +18,15 @@ function createBoard(input) {
 createBoard(16);
 
 function draw() {
-  let div = document.querySelectorAll('.board > div');
+  const div = document.querySelectorAll('.board > div');
   div.forEach(function (e) {
     e.onmouseenter = (mouse) => {
       if (mouse.buttons == 1)
-        if (changeColor) {
-          e.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        if (randomMode) {
+          const R = Math.floor(Math.random() * 256);
+          const B = Math.floor(Math.random() * 256);
+          const G = Math.floor(Math.random() * 256);
+          e.style.backgroundColor = `rgb(${R}, ${B}, ${G})`;
         } else {
           e.style.backgroundColor = color;
         }
@@ -31,29 +34,35 @@ function draw() {
   });
 }
 
-eraser = document.querySelector('.eraser');
-randomColor = document.querySelector('.random');
-defaultColor = document.querySelector('.default');
+const eraser = document.querySelector('.eraser');
+const randomColor = document.querySelector('.random');
+const colorMode = document.querySelector('.color');
+const colorPicker = document.getElementById('color-picker');
 
 eraser.onclick = () => {
-  changeColor = false;
+  randomMode = false;
   color = '#ffffff';
 };
 
-defaultColor.onclick = () => {
-  changeColor = false;
-  color = '#000000';
+randomColor.onclick = () => {
+  randomMode = true;
 };
 
-randomColor.onclick = () => {
-  changeColor = true;
+colorMode.onclick = () => {
+  randomMode = false;
+  color = colorPicker.value;
+};
+
+colorPicker.oninput = () => {
+  randomMode = false;
+  color = colorPicker.value;
 };
 
 function changeSize(value) {
   if (value < 1 || value > 100) {
     document.querySelector('.error').style.display = 'block';
   } else {
-    let div = document.querySelectorAll('.board > div');
+    const div = document.querySelectorAll('.board > div');
     div.forEach((div) => div.remove());
     createBoard(value);
   }
