@@ -1,6 +1,11 @@
 let color = '#000000';
 let randomMode = false;
 
+const eraser = document.querySelector('.eraser');
+const randomColor = document.querySelector('.random');
+const colorMode = document.querySelector('.color');
+const colorPicker = document.getElementById('color-picker');
+
 function createBoard(input) {
   const board = document.querySelector('.board');
   document.querySelector('.error').style.display = 'none';
@@ -24,20 +29,15 @@ function draw() {
       if (mouse.buttons == 1)
         if (randomMode) {
           const R = Math.floor(Math.random() * 256);
-          const B = Math.floor(Math.random() * 256);
           const G = Math.floor(Math.random() * 256);
-          e.style.backgroundColor = `rgb(${R}, ${B}, ${G})`;
+          const B = Math.floor(Math.random() * 256);
+          e.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
         } else {
           e.style.backgroundColor = color;
         }
     };
   });
 }
-
-const eraser = document.querySelector('.eraser');
-const randomColor = document.querySelector('.random');
-const colorMode = document.querySelector('.color');
-const colorPicker = document.getElementById('color-picker');
 
 eraser.onclick = () => {
   randomMode = false;
